@@ -1,0 +1,61 @@
+@import './../styles/containers.scss';
+
+.fab-container {
+	cursor: pointer;
+	width: 64px;
+	height: 64px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 64px;
+	box-shadow: $shadow-elevated;
+	position: relative;
+}
+
+.fab-icon-rotated {
+	transform: rotate(45deg);
+}
+
+.fab-action-items-container {
+	position: absolute;
+	top: -16px;
+	left: 0px;
+	transform: translateY(-100%);
+	white-space: nowrap;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	z-index: 1;
+}
+
+.fab-action-item-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-top: 8px;
+}
+
+.fab-action-item-icon-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: white;
+	box-shadow: $shadow-elevated;
+	box-sizing: border-box;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 48px;
+	width: 48px;
+	height: 48px;
+}
+
+.fab-action-item-label-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 8px 12px;
+	margin-left: 8px;
+	background: white;
+	box-shadow: $shadow-elevated;
+	border-radius: 4px;
+	height: fit-content;
+}
