@@ -1,0 +1,29 @@
+.slider-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+
+.slider-track {
+	flex-grow: 1;
+	height: 3px;
+	border-radius: 5.5px;
+	cursor: pointer;
+	position: relative;
+	margin-left: 8px;
+	margin-right: 8px;
+}
+
+.slider-thumb {
+	width: 12px;
+	height: 12px;
+	border-radius: 12px;
+	border-width: 2px;
+	border-style: solid;
+	position: absolute;
+	margin-top: -6px;
+	margin-left: -6px;
+	pointer-events: none;
+}

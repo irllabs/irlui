@@ -16,8 +16,8 @@ import './sign-in.scss';
 
 interface SignInDialogProps {
 	onSignInWithGoogleAsync: () => Promise<void>;
-	onSignInAsync: () => Promise<void>;
-	onSignUpAsync: () => Promise<void>;
+	onSignInAsync: (email: string, password: string) => Promise<void>;
+	onSignUpAsync: (email: string, password: string) => Promise<void>;
 	onClose: () => void;
 }
 
@@ -241,7 +241,7 @@ class SignInDialog extends React.Component<SignInDialogProps, SignInDialogState>
 			signingUp: true,
 		});
 
-		await this.props.onSignUpAsync();
+		await this.props.onSignUpAsync(this._email, this._password);
 
 		this.setState({
 			signingUp: false,
@@ -255,7 +255,7 @@ class SignInDialog extends React.Component<SignInDialogProps, SignInDialogState>
 			loggingIn: true,
 		});
 
-		await this.props.onSignInAsync();
+		await this.props.onSignInAsync(this._email, this._password);
 
 		this.setState({
 			loggingIn: false,

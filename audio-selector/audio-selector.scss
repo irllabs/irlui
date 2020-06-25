@@ -1,0 +1,67 @@
+@import './../styles/containers.scss';
+
+.audio-selector-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.audio-selector-title {
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 8px;
+	display: flex;
+	align-items: center;
+}
+
+.audio-selector-controls {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	box-shadow: $shadow-lined;
+	border-radius: 12px;
+}
+
+.audio-selector-file-name {
+	height: 48px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding-left: 16px;
+	padding-right: 16px;
+}
+
+.audio-selector-icon {
+	cursor: pointer;
+}
+
+.audio-selector-play-controls {
+	height: 48px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding-left: 16px;
+	padding-right: 16px;
+}
+
+.audio-selector-volume-control {
+	height: 48px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding-left: 16px;
+	padding-right: 16px;
+	background-color: rgba(0, 0, 0, 0.05);
+}
+
+.audio-selector-loop-control {
+	height: 48px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding-left: 16px;
+	padding-right: 16px;
+	background-color: rgba(0, 0, 0, 0.05);
+	justify-content: space-between;
+	border-radius: 0px 0px 12px 12px;
+}
