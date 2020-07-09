@@ -36,12 +36,16 @@ module.exports = {
         ],
       },
       {
-        test: /\.svg$/,
-        loader: 'svg-inline-loader'
-      },
+        test: /\.(jpe?g|png|gif|svg)$/i, 
+        use: ["file-loader"]
+    }
+      // {
+      //   test: /\.svg$/,
+      //   loader: 'svg-inline-loader'
+      // },
     ]
   },
   resolve: {
-    extensions: [ '.tsx', '.ts', '.js' ],
+    extensions: [ '.tsx', '.ts', '.js', '.svg' ],
   }
 }
