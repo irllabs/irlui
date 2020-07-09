@@ -2,9 +2,8 @@ import React from 'react';
 
 import Typography, { TypographyVariant } from '../typography/typography';
 
-import ThemeContext from '../../theme/theme-context';
-
 import './slider.scss';
+import { Theme } from '../../theme/create-theme';
 
 export enum SliderType {
 	NUMBER = 'number',
@@ -16,6 +15,7 @@ interface SliderProps {
 	maxValue: number;
 	type: SliderType;
 	onChange: (value: number) => void;
+	theme: Theme;
 }
 
 interface SliderState {
@@ -78,37 +78,31 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
 
 	public render() {
 		return (
-			<ThemeContext.Consumer>
-				{(theme) => {
-					return (
-						<div className='slider-container'>
-							<Typography variant={TypographyVariant.TEXT_X_SMALL} color={theme.textDaylight2}>
-								{this.leftValue}
-							</Typography>
-							<div
-								ref={this.sliderTrackElement}
-								className='slider-track'
-								onMouseDown={this.onSliderMouseDown}
-								onMouseMove={this.onSliderMouseMove}
-								style={{
-									backgroundColor: theme.textDaylight3
-								}}
-							>
-								<div className='slider-thumb' style={{
-									backgroundColor: theme.textDaylight1,
-									borderColor: theme.textDaylight1,
-									left: `${(this.props.value / this.props.maxValue) * 100}%`
-								}}>
+			<div className='slider-container'>
+				<Typography variant={TypographyVariant.TEXT_X_SMALL} color={this.props.theme.textDaylight2}>
+					{this.leftValue}
+				</Typography>
+				<div
+					ref={this.sliderTrackElement}
+					className='slider-track'
+					onMouseDown={this.onSliderMouseDown}
+					onMouseMove={this.onSliderMouseMove}
+					style={{
+						backgroundColor: this.props.theme.textDaylight3
+					}}
+				>
+					<div className='slider-thumb' style={{
+						backgroundColor: this.props.theme.textDaylight1,
+						borderColor: this.props.theme.textDaylight1,
+						left: `${(this.props.value / this.props.maxValue) * 100}%`
+					}}>
 
-								</div>
-							</div>
-							<Typography variant={TypographyVariant.TEXT_X_SMALL} color={theme.textDaylight2} >
-								{this.rightValue}
-							</Typography>
-						</div>
-					);
-				}}
-			</ThemeContext.Consumer>
+					</div>
+				</div>
+				<Typography variant={TypographyVariant.TEXT_X_SMALL} color={this.props.theme.textDaylight2} >
+					{this.rightValue}
+				</Typography>
+			</div>
 		);
 	}
 

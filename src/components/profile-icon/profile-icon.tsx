@@ -1,12 +1,12 @@
 import React from 'react';
 
 import './profile-icon.scss';
-
-import ThemeContext from '../../theme/theme-context';
+import { Theme } from '../../theme/create-theme';
 
 interface ProfileIconProps {
 	profileImage: string;
 	onClick?: () => void;
+	theme: Theme;
 }
 
 class ProfileIcon extends React.Component<ProfileIconProps, {}> {
@@ -18,22 +18,16 @@ class ProfileIcon extends React.Component<ProfileIconProps, {}> {
 
 	public render = (): JSX.Element => {
 		return (
-			<ThemeContext.Consumer>
-				{(theme) => {
-					return (
-						<img
-							key='profile-image'
-							className='profile-image'
-							style={{
-								borderColor: theme.primary,
-								backgroundColor: theme.primary,
-							}}
-							src={this.props.profileImage}
-							onClick={this.onClick}
-						/>
-					);
+			<img
+				key='profile-image'
+				className='profile-image'
+				style={{
+					borderColor: this.props.theme.primary,
+					backgroundColor: this.props.theme.primary,
 				}}
-			</ThemeContext.Consumer>
+				src={this.props.profileImage}
+				onClick={this.onClick}
+			/>
 		);
 	}
 

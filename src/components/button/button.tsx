@@ -3,7 +3,7 @@ import React from 'react';
 import Typography, { TypographyVariant } from '../typography/typography';
 
 import './button.scss';
-import ThemeContext from '../../theme/theme-context';
+import { Theme } from '../../theme/create-theme';
 
 interface ButtonProps {
 	label: string;
@@ -11,6 +11,7 @@ interface ButtonProps {
 	fullWidth?: boolean;
 	disabled?: boolean;
 	width?: number;
+	theme: Theme;
 }
 
 class Button extends React.Component<ButtonProps, {}> {
@@ -28,20 +29,14 @@ class Button extends React.Component<ButtonProps, {}> {
 		}
 
 		return (
-			<ThemeContext.Consumer>
-				{(theme) => {
-					return (
-						<div style={{
-							width: buttonWidth,
-							backgroundColor: this.props.disabled ? theme.primary2 : theme.primary
-						}} className='button-container' onClick={this.onClick}>
-							<Typography variant={TypographyVariant.HEADING_MEDIUM} color='#FFFFFF'>
-								{this.props.label}
-							</Typography>
-						</div>
-					);
-				}}
-			</ThemeContext.Consumer>
+			<div style={{
+				width: buttonWidth,
+				backgroundColor: this.props.disabled ? this.props.theme.primary2 : this.props.theme.primary
+			}} className='button-container' onClick={this.onClick}>
+				<Typography variant={TypographyVariant.HEADING_MEDIUM} color='#FFFFFF'>
+					{this.props.label}
+				</Typography>
+			</div>
 		);
 	}
 

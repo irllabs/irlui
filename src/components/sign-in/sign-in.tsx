@@ -6,19 +6,19 @@ import Spacer from './../spacer/spacer';
 import Input from './../input/input';
 import Button from './../button/button';
 
-import ThemeContext from '../../theme/theme-context';
-
 import googleLogo from '../../../images/google-icon.svg';
 import backImageIcon from '../../../images/back.svg';
 import closeImageIcon from '../../../images/close.svg';
 
 import './sign-in.scss';
+import { Theme } from '../../theme/create-theme';
 
 interface SignInDialogProps {
 	onSignInWithGoogleAsync: () => Promise<void>;
 	onSignInAsync: (email: string, password: string) => Promise<void>;
 	onSignUpAsync: (email: string, password: string) => Promise<void>;
 	onClose: () => void;
+	theme: Theme;
 }
 
 interface SignInDialogState {
@@ -66,7 +66,7 @@ class SignInDialog extends React.Component<SignInDialogProps, SignInDialogState>
 					<Spacer size={16} />
 					<Input onChange={this.onPasswordChange} placeholder='Enter your password' label='Password' type='password' />
 					<Spacer size={28} />
-					<Button label={this.state.loggingIn ? 'Loading...' : 'Sign in'} fullWidth={true} disabled={!this.state.signInWithEmailEnabled} onClick={this.onSignInAsync} />
+					<Button theme={this.props.theme} label={this.state.loggingIn ? 'Loading...' : 'Sign in'} fullWidth={true} disabled={!this.state.signInWithEmailEnabled} onClick={this.onSignInAsync} />
 				</div>
 			</div>
 		);
@@ -88,61 +88,55 @@ class SignInDialog extends React.Component<SignInDialogProps, SignInDialogState>
 					<Spacer size={16} />
 					<Input onChange={this.onRepeatPasswordChange} placeholder='Enter the password again' label='Password' type='password' error={this.state.repeatPasswordError} />
 					<Spacer size={28} />
-					<Button label={this.state.signingUp ? 'Loading...' : 'Sign up'} fullWidth={true} disabled={!this.state.signUpWithEmailEnabled} onClick={this.signUpAsync} />
+					<Button theme={this.props.theme} label={this.state.signingUp ? 'Loading...' : 'Sign up'} fullWidth={true} disabled={!this.state.signUpWithEmailEnabled} onClick={this.signUpAsync} />
 				</div>
 			</div>
 		);
 
 		return (
-			<ThemeContext.Consumer>
-				{(theme) => {
-					return (
-						<div>
-							<div className='sign-in-dialog-backdrop' onClick={this.onClose} />
-							<div className='sign-in-dialog-container'>
-								{this.state.signInWithEmailDialogActive && signInWithEmail}
-								{this.state.signUpWithEmailDialogActive && signUpWithEmail}
-								{!this.state.signInWithEmailDialogActive && !this.state.signUpWithEmailDialogActive &&
-								<div className='sign-in-dialog'>
-									<div className='sign-in-dialog-title'>
-										<img className='sing-in-close-button' src={closeImageIcon} onClick={this.onClose}/>
-										<div className='sing-in-title-container'>
-											<Typography variant={TypographyVariant.TEXT_LARGE} color='rgba(0, 0, 0, 0.9)'>
-												Sign in
-											</Typography>
-										</div>
-									</div>
-									<div className='sign-in-dialog-body'>
-										<div className='sign-in-google-button' onClick={this.onSignInWithGoogleAsync}>
-											<img src={googleLogo} />
-											<Spacer size={4} />
-											<Typography color='rgba(0, 0, 0, 0.6)' variant={TypographyVariant.HEADING_MEDIUM}>
-												Continue with Google
-											</Typography>
-										</div>
-										<Spacer size={10}/>
-										<div className='sign-in-email-button' onClick={this.openSignInWithEmail} style={{borderColor: theme.primary}}>
-											<Typography color={theme.primary} variant={TypographyVariant.HEADING_MEDIUM}>
-												Sign in with email
-											</Typography>
-										</div>
-										<Spacer size={32}/>
-										<Typography color='rgba(0, 0, 0, 0.6)' variant={TypographyVariant.TEXT_SMALL}>
-											Don't have an account yet?
-										</Typography>
-										<Spacer size={22}/>
-										<div className='sign-in-dialog-sign-up-container' onClick={this.openSignUpWithEmail}>
-											<Typography color={theme.primary} variant={TypographyVariant.HEADING_MEDIUM}>
-												Sign up
-											</Typography>
-										</div>
-									</div>
-								</div>}
+			<div>
+				<div className='sign-in-dialog-backdrop' onClick={this.onClose} />
+				<div className='sign-in-dialog-container'>
+					{this.state.signInWithEmailDialogActive && signInWithEmail}
+					{this.state.signUpWithEmailDialogActive && signUpWithEmail}
+					{!this.state.signInWithEmailDialogActive && !this.state.signUpWithEmailDialogActive &&
+					<div className='sign-in-dialog'>
+						<div className='sign-in-dialog-title'>
+							<img className='sing-in-close-button' src={closeImageIcon} onClick={this.onClose}/>
+							<div className='sing-in-title-container'>
+								<Typography variant={TypographyVariant.TEXT_LARGE} color='rgba(0, 0, 0, 0.9)'>
+									Sign in
+								</Typography>
 							</div>
 						</div>
-					);
-				}}
-			</ThemeContext.Consumer>
+						<div className='sign-in-dialog-body'>
+							<div className='sign-in-google-button' onClick={this.onSignInWithGoogleAsync}>
+								<img src={googleLogo} />
+								<Spacer size={4} />
+								<Typography color='rgba(0, 0, 0, 0.6)' variant={TypographyVariant.HEADING_MEDIUM}>
+									Continue with Google
+								</Typography>
+							</div>
+							<Spacer size={10}/>
+							<div className='sign-in-email-button' onClick={this.openSignInWithEmail} style={{borderColor: this.props.theme.primary}}>
+								<Typography color={this.props.theme.primary} variant={TypographyVariant.HEADING_MEDIUM}>
+									Sign in with email
+								</Typography>
+							</div>
+							<Spacer size={32}/>
+							<Typography color='rgba(0, 0, 0, 0.6)' variant={TypographyVariant.TEXT_SMALL}>
+								Don't have an account yet?
+							</Typography>
+							<Spacer size={22}/>
+							<div className='sign-in-dialog-sign-up-container' onClick={this.openSignUpWithEmail}>
+								<Typography color={this.props.theme.primary} variant={TypographyVariant.HEADING_MEDIUM}>
+									Sign up
+								</Typography>
+							</div>
+						</div>
+					</div>}
+				</div>
+			</div>
 		);
 	}
 

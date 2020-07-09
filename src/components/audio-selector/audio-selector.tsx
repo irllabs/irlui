@@ -8,15 +8,15 @@ import BorderButton, { BorderVariant } from '../border-button/border-button';
 import Typography, { TypographyVariant } from '../typography/typography';
 import Checkbox from '../checkbox/checkbox';
 
-import ThemeContext from '../../theme/theme-context';
-
 import cancelImage from '../../../images/cancel.svg';
 import playSmallImage from '../../../images/play-small.svg';
 import volumeOn from '../../../images/volume-on.svg';
 import loopImage from '../../../images/loop.svg';
+import { Theme } from '../../theme/create-theme';
 
 interface AudioSelectorProps {
 	title: string;
+	theme: Theme;
 }
 
 interface AudioSelectorState {
@@ -69,65 +69,59 @@ export default class AudioSelector extends React.Component<AudioSelectorProps, A
 
 	public render() {
 		return (
-			<ThemeContext.Consumer>
-				{(theme) => {
-					return (
-						<div className='audio-selector-container'>
-							<audio
-								ref={this.audioElement}
-								src={this.state.audioData}
-								loop={this.state.playInLoop}
-							/>
+				<div className='audio-selector-container'>
+					<audio
+						ref={this.audioElement}
+						src={this.state.audioData}
+						loop={this.state.playInLoop}
+					/>
 
-							<div className='audio-selector-title'>
-								<Typography variant={TypographyVariant.TEXT_MEDIUM} color={theme.textDaylight2}>
-									{this.props.title}
+					<div className='audio-selector-title'>
+						<Typography variant={TypographyVariant.TEXT_MEDIUM} color={this.props.theme.textDaylight2}>
+							{this.props.title}
+						</Typography>
+					</div>
+					<input type='file' id='audio-selector-input' style={{display: 'none'}} onChange={this.onAudioSelected}/>
+					{!this.state.audioData &&
+					<label htmlFor='audio-selector-input'>
+						<BorderButton theme={this.props.theme} label='Select audio' maxWidth={true} borderVariant={BorderVariant.DASHED} />
+					</label>}
+					{this.state.audioData &&
+					<div className='audio-selector-controls'>
+						<div className='audio-selector-file-name'>
+							<Typography variant={TypographyVariant.TEXT_MEDIUM} color={this.props.theme.textDaylight1}>
+								{this.state.fileName}
+							</Typography>
+							<img src={cancelImage} onClick={this.removeAudio} className='audio-selector-icon' />
+						</div>
+						<div className='audio-selector-play-controls'>
+							<img src={playSmallImage} className='audio-selector-icon' onClick={this.togglePlay} />
+							<Spacer size={20} />
+							<Slider theme={this.props.theme} value={this.state.currentTime} maxValue={this.state.duration} type={SliderType.TIME} onChange={this.onSeek} />
+						</div>
+						<div className='audio-selector-volume-control'>
+							<img src={volumeOn} className='audio-selector-icon' />
+							<Spacer size={4} />
+							<Typography variant={TypographyVariant.TEXT_MEDIUM} color={this.props.theme.textDaylight2} whiteSpace='nowrap'>
+								Playback volume
+							</Typography>
+							<Spacer size={8} />
+							<Slider theme={this.props.theme} value={this.state.volume} maxValue={100} type={SliderType.NUMBER} onChange={this.onVolumeChange} />
+						</div>
+						<div className='audio-selector-loop-control'>
+							<div style={{display: 'flex'}}>
+								<img src={loopImage} />
+								<Spacer size={4} />
+								<Typography variant={TypographyVariant.TEXT_MEDIUM} color={this.props.theme.textDaylight2}>
+									Play in-loop
 								</Typography>
 							</div>
-							<input type='file' id='audio-selector-input' style={{display: 'none'}} onChange={this.onAudioSelected}/>
-							{!this.state.audioData &&
-							<label htmlFor='audio-selector-input'>
-								<BorderButton label='Select audio' maxWidth={true} borderVariant={BorderVariant.DASHED} />
-							</label>}
-							{this.state.audioData &&
-							<div className='audio-selector-controls'>
-								<div className='audio-selector-file-name'>
-									<Typography variant={TypographyVariant.TEXT_MEDIUM} color={theme.textDaylight1}>
-										{this.state.fileName}
-									</Typography>
-									<img src={cancelImage} onClick={this.removeAudio} className='audio-selector-icon' />
-								</div>
-								<div className='audio-selector-play-controls'>
-									<img src={playSmallImage} className='audio-selector-icon' onClick={this.togglePlay} />
-									<Spacer size={20} />
-									<Slider value={this.state.currentTime} maxValue={this.state.duration} type={SliderType.TIME} onChange={this.onSeek} />
-								</div>
-								<div className='audio-selector-volume-control'>
-									<img src={volumeOn} className='audio-selector-icon' />
-									<Spacer size={4} />
-									<Typography variant={TypographyVariant.TEXT_MEDIUM} color={theme.textDaylight2} whiteSpace='nowrap'>
-										Playback volume
-									</Typography>
-									<Spacer size={8} />
-									<Slider value={this.state.volume} maxValue={100} type={SliderType.NUMBER} onChange={this.onVolumeChange} />
-								</div>
-								<div className='audio-selector-loop-control'>
-									<div style={{display: 'flex'}}>
-										<img src={loopImage} />
-										<Spacer size={4} />
-										<Typography variant={TypographyVariant.TEXT_MEDIUM} color={theme.textDaylight2}>
-											Play in-loop
-										</Typography>
-									</div>
-									<div>
-										<Checkbox disabledLabel='No' enabledLabel='Yes' value={this.state.playInLoop} onChange={this.togglePlayInLoop} />
-									</div>
-								</div>
-							</div>}
+							<div>
+								<Checkbox theme={this.props.theme} disabledLabel='No' enabledLabel='Yes' value={this.state.playInLoop} onChange={this.togglePlayInLoop} />
+							</div>
 						</div>
-					);
-				}}
-			</ThemeContext.Consumer>
+					</div>}
+				</div>
 		);
 	}
 

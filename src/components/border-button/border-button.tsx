@@ -1,10 +1,8 @@
 import React from 'react';
-
-import ThemeContext from '../../theme/theme-context';
-
 import Typography, { TypographyVariant } from '../typography/typography';
 
 import './border-button.scss'
+import { Theme } from '../../theme/create-theme';
 
 export enum Variant {
 	PRIMARY = 'primary',
@@ -22,6 +20,7 @@ interface BorderButtonProps {
 	variant?: Variant;
 	borderVariant?: BorderVariant;
 	maxWidth?: boolean;
+	theme: Theme;
 }
 
 export default class BorderButton extends React.Component<BorderButtonProps, {}> {
@@ -31,24 +30,18 @@ export default class BorderButton extends React.Component<BorderButtonProps, {}>
 
 	public render() {
 		return (
-			<ThemeContext.Consumer>
-				{(theme) => {
-					return (
-						<div className='border-button' style={{
-							width: this.props.maxWidth ? '100%' : 'auto',
-							borderColor: this.props.variant === Variant.PRIMARY ? theme.primary : theme.textDaylight2,
-							borderStyle: this.props.borderVariant || 'solid'
-						}} onClick={this.props.onClick}>
-							<Typography
-								variant={TypographyVariant.HEADING_MEDIUM}
-								color={this.props.variant === Variant.PRIMARY ? theme.primary : theme.textDaylight2}
-							>
-								{this.props.label}
-							</Typography>
-						</div>
-					);
-				}}
-			</ThemeContext.Consumer>
+			<div className='border-button' style={{
+				width: this.props.maxWidth ? '100%' : 'auto',
+				borderColor: this.props.variant === Variant.PRIMARY ? this.props.theme.primary : this.props.theme.textDaylight2,
+				borderStyle: this.props.borderVariant || 'solid'
+			}} onClick={this.props.onClick}>
+				<Typography
+					variant={TypographyVariant.HEADING_MEDIUM}
+					color={this.props.variant === Variant.PRIMARY ? this.props.theme.primary : this.props.theme.textDaylight2}
+				>
+					{this.props.label}
+				</Typography>
+			</div>
 		);
 	}
 }
