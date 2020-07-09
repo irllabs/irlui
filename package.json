@@ -2,7 +2,7 @@
   "name": "irlui",
   "version": "1.0.1",
   "description": "IRL UI is a collection of React/Sass/TypeScript components used by IRL Studio applications.",
-  "main": "index.js",
+  "main": "/dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "start-storybook",
