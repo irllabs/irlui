@@ -22,7 +22,8 @@ export default class InfoButton extends React.Component<InfoButtonProps, {}> {
 				{/* Vertical splitter */}
 				<div className='info-button-splitter' style={{backgroundColor: this.props.splitterColor}}/>
 				{/* Info button */}
-				<img className='info-button-image' src={infoIcon} />
+				<span dangerouslySetInnerHTML={{__html: infoIcon}} className='info-button-image' />
+				{/* <img className='info-button-image' src={infoIcon} /> */}
 			</div>
 		);
 	}

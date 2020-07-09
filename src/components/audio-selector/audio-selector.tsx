@@ -92,15 +92,18 @@ export default class AudioSelector extends React.Component<AudioSelectorProps, A
 							<Typography variant={TypographyVariant.TEXT_MEDIUM} color={this.props.theme.textDaylight1}>
 								{this.state.fileName}
 							</Typography>
-							<img src={cancelImage} onClick={this.removeAudio} className='audio-selector-icon' />
+							<span dangerouslySetInnerHTML={{__html: cancelImage}} onClick={this.removeAudio} className='audio-selector-icon' />
+							{/* <img src={cancelImage} onClick={this.removeAudio} className='audio-selector-icon' /> */}
 						</div>
 						<div className='audio-selector-play-controls'>
-							<img src={playSmallImage} className='audio-selector-icon' onClick={this.togglePlay} />
+							<span dangerouslySetInnerHTML={{__html: playSmallImage}} className='audio-selector-icon' onClick={this.togglePlay}/>
+							{/* <img src={playSmallImage} className='audio-selector-icon' onClick={this.togglePlay} /> */}
 							<Spacer size={20} />
 							<Slider theme={this.props.theme} value={this.state.currentTime} maxValue={this.state.duration} type={SliderType.TIME} onChange={this.onSeek} />
 						</div>
 						<div className='audio-selector-volume-control'>
-							<img src={volumeOn} className='audio-selector-icon' />
+							<span dangerouslySetInnerHTML={{__html: volumeOn}} className='audio-selector-icon'/>
+							{/* <img src={volumeOn} className='audio-selector-icon' /> */}
 							<Spacer size={4} />
 							<Typography variant={TypographyVariant.TEXT_MEDIUM} color={this.props.theme.textDaylight2} whiteSpace='nowrap'>
 								Playback volume
@@ -110,7 +113,8 @@ export default class AudioSelector extends React.Component<AudioSelectorProps, A
 						</div>
 						<div className='audio-selector-loop-control'>
 							<div style={{display: 'flex'}}>
-								<img src={loopImage} />
+								<span dangerouslySetInnerHTML={{__html: loopImage}} />
+								{/* <img src={loopImage} /> */}
 								<Spacer size={4} />
 								<Typography variant={TypographyVariant.TEXT_MEDIUM} color={this.props.theme.textDaylight2}>
 									Play in-loop

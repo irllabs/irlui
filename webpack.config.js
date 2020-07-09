@@ -36,13 +36,9 @@ module.exports = {
         ],
       },
       {
-        test: /\.(jpe?g|png|gif|svg)$/i, 
-        use: ["file-loader"]
-    }
-      // {
-      //   test: /\.svg$/,
-      //   loader: 'svg-inline-loader'
-      // },
+        test: /\.svg$/,
+        loader: 'svg-inline-loader'
+      },
     ]
   },
   resolve: {

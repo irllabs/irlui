@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Typography, { TypographyVariant } from '../typography/typography';
-
 import colors from '../../../styles/colors';
 
 import './fab.scss';
@@ -38,7 +37,7 @@ class Fab extends React.Component<FabProps, FabState> {
 
 		return (
 			<div style={style} className='fab-container' onClick={this.toggle}>
-				<img className={this.state.open ? 'fab-icon-rotated' : ''} src='assets/icons/plus.svg' />
+				{/* <img className={this.state.open ? 'fab-icon-rotated' : ''} src='assets/icons/plus.svg' /> */}
 				{this.state.open
 				&& <div className='fab-action-items-container'>
 					{this.props.actionItems.map((actionItem) => {

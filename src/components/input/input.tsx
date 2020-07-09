@@ -101,11 +101,17 @@ class Input extends React.Component<InputProps, InputState> {
 					{placeholderText}
 				</label>
 				{this.state.value && !this.props.color &&
-				<img
+					<span 
+					dangerouslySetInnerHTML={{__html: this.state.emailValid && !this.props.error ? cancelImage : invalidInputImage}} 
 					onClick={this.onClear}
-					className='input-cancel-button'
-					src={this.state.emailValid && !this.props.error ? cancelImage : invalidInputImage}
-				/>}
+					className='input-cancel-button' 
+					/>
+				// <img
+				// 	onClick={this.onClear}
+				// 	className='input-cancel-button'
+				// 	src={this.state.emailValid && !this.props.error ? cancelImage : invalidInputImage}
+				// />
+				}
 				{this.state.value && this.props.color &&
 				<div onClick={this.onClear} className='input-cancel-button'>
 					<CancelIcon fill='white' opacity='0.7'/>
