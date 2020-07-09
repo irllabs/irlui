@@ -7,7 +7,7 @@ interface EditIconProps {
 	opacity: string;
 }
 
-export default class DeleteIcon extends React.Component<EditIconProps, {}> {
+export default class EditIcon extends React.Component<EditIconProps, {}> {
 	public render = (): JSX.Element => {
 		return (
 			<div className='icon-container'>

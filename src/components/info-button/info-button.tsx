@@ -1,6 +1,6 @@
 import React from 'react';
 
-import infoIcon from './../images/info.svg';
+import infoIcon from '../../../images/info.svg';
 
 import './info-button.scss';
 

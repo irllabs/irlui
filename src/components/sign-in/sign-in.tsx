@@ -1,16 +1,16 @@
 import React from 'react';
 import EmailValidator from 'email-validator';
 
-import Typography, { TypographyVariant } from './../typography/typography';
+import Typography, { TypographyVariant } from '../typography/typography';
 import Spacer from './../spacer/spacer';
 import Input from './../input/input';
 import Button from './../button/button';
 
-import ThemeContext from './../theme/theme-context';
+import ThemeContext from '../../../theme/theme-context';
 
-import googleLogo from './../images/google-icon.svg';
-import backImageIcon from './../images/back.svg';
-import closeImageIcon from './../images/close.svg';
+import googleLogo from '../../../images/google-icon.svg';
+import backImageIcon from '../../../images/back.svg';
+import closeImageIcon from '../../../images/close.svg';
 
 import './sign-in.scss';
 

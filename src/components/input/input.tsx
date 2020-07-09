@@ -3,8 +3,8 @@ import EmailValidator from 'email-validator';
 
 import CancelIcon from './../icons/cancel-icon';
 
-import cancelImage from './../images/cancel.svg';
-import invalidInputImage from './../images/invalid-input.svg';
+import cancelImage from '../../../images/cancel.svg';
+import invalidInputImage from '../../../images/invalid-input.svg';
 
 import './input.scss';
 

@@ -2,7 +2,7 @@ import React from 'react';
 
 import Typography, { TypographyVariant } from '../typography/typography';
 
-import ThemeContext from '../theme/theme-context';
+import ThemeContext from '../../../theme/theme-context';
 
 import './slider.scss';
 

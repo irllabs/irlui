@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Typography, { TypographyVariant } from './../typography/typography';
+import Typography, { TypographyVariant } from '../typography/typography';
 
-import colors from './../styles/colors';
+import colors from '../../../styles/colors';
 
 import './fab.scss';
 

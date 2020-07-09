@@ -6,14 +6,14 @@ import Spacer from '../spacer/spacer';
 import Slider, { SliderType } from '../slider/slider';
 import BorderButton, { BorderVariant } from '../border-button/border-button';
 import Typography, { TypographyVariant } from '../typography/typography';
-
-import ThemeContext from '../theme/theme-context';
-
-import cancelImage from './../images/cancel.svg';
-import playSmallImage from './../images/play-small.svg';
-import volumeOn from './../images/volume-on.svg';
-import loopImage from './../images/loop.svg';
 import Checkbox from '../checkbox/checkbox';
+
+import ThemeContext from '../../../theme/theme-context';
+
+import cancelImage from '../../../images/cancel.svg';
+import playSmallImage from '../../../images/play-small.svg';
+import volumeOn from '../../../images/volume-on.svg';
+import loopImage from '../../../images/loop.svg';
 
 interface AudioSelectorProps {
 	title: string;
