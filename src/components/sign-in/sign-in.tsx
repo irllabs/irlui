@@ -6,7 +6,7 @@ import Spacer from './../spacer/spacer';
 import Input from './../input/input';
 import Button from './../button/button';
 
-import ThemeContext from '../../../theme/theme-context';
+import ThemeContext from '../../theme/theme-context';
 
 import googleLogo from '../../../images/google-icon.svg';
 import backImageIcon from '../../../images/back.svg';

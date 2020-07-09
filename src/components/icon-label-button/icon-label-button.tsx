@@ -5,7 +5,7 @@ import Typography, { TypographyVariant } from '../typography/typography';
 
 import './icon-label-button.scss';
 
-import ThemeContext from '../../../theme/theme-context';
+import ThemeContext from '../../theme/theme-context';
 
 interface IconLabelButtonProps {
 	label: string;

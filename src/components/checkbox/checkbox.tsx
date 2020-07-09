@@ -1,7 +1,7 @@
 import React from 'react';
 import uuid from 'uuid/v1';
 
-import ThemeContext from '../../../theme/theme-context';
+import ThemeContext from '../../theme/theme-context';
 
 import './checkbox.scss';
 import Typography, { TypographyVariant } from '../typography/typography';

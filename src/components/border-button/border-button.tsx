@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ThemeContext from '../../../theme/theme-context';
+import ThemeContext from '../../theme/theme-context';
 
 import Typography, { TypographyVariant } from '../typography/typography';
 

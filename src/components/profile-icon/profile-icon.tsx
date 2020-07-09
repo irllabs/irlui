@@ -2,7 +2,7 @@ import React from 'react';
 
 import './profile-icon.scss';
 
-import ThemeContext from '../../../theme/theme-context';
+import ThemeContext from '../../theme/theme-context';
 
 interface ProfileIconProps {
 	profileImage: string;

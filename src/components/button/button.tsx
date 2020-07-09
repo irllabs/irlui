@@ -3,7 +3,7 @@ import React from 'react';
 import Typography, { TypographyVariant } from '../typography/typography';
 
 import './button.scss';
-import ThemeContext from '../../../theme/theme-context';
+import ThemeContext from '../../theme/theme-context';
 
 interface ButtonProps {
 	label: string;
