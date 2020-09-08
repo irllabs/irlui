@@ -6,7 +6,7 @@ import Typography, { TypographyVariant } from '../typography/typography';
 import './icon-label-button.scss';
 import { Theme } from '../../theme/create-theme';
 
-interface IconLabelButtonProps {
+export interface IconLabelButtonProps {
 	label: string;
 	icon: any;
 	onClick?: () => void;

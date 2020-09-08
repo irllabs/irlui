@@ -8,7 +8,7 @@ import invalidInputImage from '../../../images/invalid-input.svg';
 
 import './input.scss';
 
-interface InputProps {
+export interface InputProps {
 	onChange: (value: string) => void;
 	placeholder: string;
 	label: string;
@@ -101,16 +101,11 @@ class Input extends React.Component<InputProps, InputState> {
 					{placeholderText}
 				</label>
 				{this.state.value && !this.props.color &&
-					<span 
-					dangerouslySetInnerHTML={{__html: this.state.emailValid && !this.props.error ? cancelImage : invalidInputImage}} 
+				<img
 					onClick={this.onClear}
-					className='input-cancel-button' 
-					/>
-				// <img
-				// 	onClick={this.onClear}
-				// 	className='input-cancel-button'
-				// 	src={this.state.emailValid && !this.props.error ? cancelImage : invalidInputImage}
-				// />
+					className='input-cancel-button'
+					src={this.state.emailValid && !this.props.error ? cancelImage : invalidInputImage}
+				/>
 				}
 				{this.state.value && this.props.color &&
 				<div onClick={this.onClear} className='input-cancel-button'>

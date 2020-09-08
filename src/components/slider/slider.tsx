@@ -10,7 +10,7 @@ export enum SliderType {
 	TIME = 'time',
 }
 
-interface SliderProps {
+export interface SliderProps {
 	value: number;
 	maxValue: number;
 	type: SliderType;

@@ -14,7 +14,7 @@ export enum BorderVariant {
 	DASHED = 'dashed',
 }
 
-interface BorderButtonProps {
+export interface BorderButtonProps {
 	label: string;
 	onClick?: () => void;
 	variant?: Variant;

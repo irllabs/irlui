@@ -1,11 +1,11 @@
 import React from 'react';
-import uuid from 'uuid/v1';
+import * as uuid from 'uuid';
 
 import './checkbox.scss';
 import Typography, { TypographyVariant } from '../typography/typography';
 import { Theme } from '../../theme/create-theme';
 
-interface CheckboxProps {
+export interface CheckboxProps {
 	value: boolean;
 	onChange: (data: any) => void;
 	enabledLabel: string;
@@ -14,7 +14,7 @@ interface CheckboxProps {
 }
 
 export default class Checkbox extends React.Component<CheckboxProps, {}> {
-	public uniqueId = uuid();
+	public uniqueId = uuid.v1();
 
 	constructor(props: CheckboxProps) {
 		super(props);

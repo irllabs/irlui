@@ -2,7 +2,7 @@ import React from 'react';
 
 import './icon-style.scss';
 
-interface MoreIconProps {
+export interface MoreIconProps {
 	fill: string;
 	opacity: string;
 }

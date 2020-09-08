@@ -3,7 +3,7 @@ import React from 'react';
 import './profile-icon.scss';
 import { Theme } from '../../theme/create-theme';
 
-interface ProfileIconProps {
+export interface ProfileIconProps {
 	profileImage: string;
 	onClick?: () => void;
 	theme: Theme;

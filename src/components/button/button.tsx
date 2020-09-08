@@ -5,7 +5,7 @@ import Typography, { TypographyVariant } from '../typography/typography';
 import './button.scss';
 import { Theme } from '../../theme/create-theme';
 
-interface ButtonProps {
+export interface ButtonProps {
 	label: string;
 	onClick?: () => void;
 	fullWidth?: boolean;

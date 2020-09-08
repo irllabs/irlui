@@ -2,7 +2,7 @@ import React from 'react';
 
 import './icon-style.scss';
 
-interface ShareIconProps {
+export interface ShareIconProps {
 	fill: string;
 	opacity: string;
 }

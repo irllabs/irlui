@@ -21,7 +21,7 @@ export enum TypographyVariant {
 
 export type TextAlignProperty = "center" | "end" | "justify" | "left" | "match-parent" | "right" | "start";
 
-interface TypographyProps {
+export interface TypographyProps {
 	variant: TypographyVariant;
 	color?: string;
 	align?: TextAlignProperty;

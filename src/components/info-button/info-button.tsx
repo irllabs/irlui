@@ -4,7 +4,7 @@ import infoIcon from '../../../images/info.svg';
 
 import './info-button.scss';
 
-interface InfoButtonProps {
+export interface InfoButtonProps {
 	backgroundColor: string;
 	splitterColor: string;
 }
@@ -22,8 +22,7 @@ export default class InfoButton extends React.Component<InfoButtonProps, {}> {
 				{/* Vertical splitter */}
 				<div className='info-button-splitter' style={{backgroundColor: this.props.splitterColor}}/>
 				{/* Info button */}
-				<span dangerouslySetInnerHTML={{__html: infoIcon}} className='info-button-image' />
-				{/* <img className='info-button-image' src={infoIcon} /> */}
+				<img className='info-button-image' src={infoIcon} />
 			</div>
 		);
 	}

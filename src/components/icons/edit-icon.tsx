@@ -2,7 +2,7 @@ import React from 'react';
 
 import './icon-style.scss';
 
-interface EditIconProps {
+export interface EditIconProps {
 	fill: string;
 	opacity: string;
 }

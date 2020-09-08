@@ -11,7 +11,7 @@ export interface FabActionItem {
 	icon: string;
 }
 
-interface FabProps {
+export interface FabProps {
 	color: string;
 	actionItems: FabActionItem[];
 	onClick: (actionName: string) => void;

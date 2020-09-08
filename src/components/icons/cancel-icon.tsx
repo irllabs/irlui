@@ -2,7 +2,7 @@ import React from 'react';
 
 import './icon-style.scss';
 
-interface CancelIconProps {
+export interface CancelIconProps {
 	fill: string;
 	opacity: string;
 }

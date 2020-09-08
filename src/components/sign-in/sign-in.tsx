@@ -13,7 +13,7 @@ import closeImageIcon from '../../../images/close.svg';
 import './sign-in.scss';
 import { Theme } from '../../theme/create-theme';
 
-interface SignInDialogProps {
+export interface SignInDialogProps {
 	onSignInWithGoogleAsync: () => Promise<void>;
 	onSignInAsync: (email: string, password: string) => Promise<void>;
 	onSignUpAsync: (email: string, password: string) => Promise<void>;
@@ -54,8 +54,7 @@ class SignInDialog extends React.Component<SignInDialogProps, SignInDialogState>
 		const signInWithEmail = (
 			<div className='sign-in-dialog'>
 				<div className='sign-in-dialog-title'>
-					<span dangerouslySetInnerHTML={{__html: backImageIcon}} className='sing-in-back-button' onClick={this.onBack}/>
-					{/* <img className='sing-in-back-button' src={backImageIcon} onClick={this.onBack}/> */}
+					<img className='sing-in-back-button' src={backImageIcon} onClick={this.onBack}/>
 					<div className='sing-in-title-container'>
 						<Typography variant={TypographyVariant.TEXT_LARGE} color='rgba(0, 0, 0, 0.9)'>
 							Sign in with email
@@ -75,8 +74,7 @@ class SignInDialog extends React.Component<SignInDialogProps, SignInDialogState>
 		const signUpWithEmail = (
 			<div className='sign-in-dialog'>
 				<div className='sign-in-dialog-title'>
-					<span dangerouslySetInnerHTML={{__html: backImageIcon}} className='sing-in-back-button' onClick={this.onBack}/>
-					{/* <img className='sing-in-back-button' src={backImageIcon} onClick={this.onBack}/> */}
+					<img className='sing-in-back-button' src={backImageIcon} onClick={this.onBack}/>
 					<div className='sing-in-title-container'>
 						<Typography variant={TypographyVariant.TEXT_LARGE} color='rgba(0, 0, 0, 0.9)'>
 							Sign up with email
@@ -104,8 +102,7 @@ class SignInDialog extends React.Component<SignInDialogProps, SignInDialogState>
 					{!this.state.signInWithEmailDialogActive && !this.state.signUpWithEmailDialogActive &&
 					<div className='sign-in-dialog'>
 						<div className='sign-in-dialog-title'>
-							<span dangerouslySetInnerHTML={{__html: closeImageIcon}} className='sing-in-close-button' onClick={this.onClose}/>
-							{/* <img className='sing-in-close-button' src={closeImageIcon} onClick={this.onClose}/> */}
+							<img className='sing-in-close-button' src={closeImageIcon} onClick={this.onClose}/>
 							<div className='sing-in-title-container'>
 								<Typography variant={TypographyVariant.TEXT_LARGE} color='rgba(0, 0, 0, 0.9)'>
 									Sign in
@@ -114,8 +111,7 @@ class SignInDialog extends React.Component<SignInDialogProps, SignInDialogState>
 						</div>
 						<div className='sign-in-dialog-body'>
 							<div className='sign-in-google-button' onClick={this.onSignInWithGoogleAsync}>
-								<span dangerouslySetInnerHTML={{__html: googleLogo}} />
-								{/* <img src={googleLogo} /> */}
+								<img src={googleLogo} />
 								<Spacer size={4} />
 								<Typography color='rgba(0, 0, 0, 0.6)' variant={TypographyVariant.HEADING_MEDIUM}>
 									Continue with Google
