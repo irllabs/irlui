@@ -5,7 +5,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 import Spacer, { SpacerProps } from '../components/spacer/spacer';
 
 export default {
-    title: 'Example/Slider',
+    title: 'Example/Spacer',
     decorators: [withKnobs],
   };
 
