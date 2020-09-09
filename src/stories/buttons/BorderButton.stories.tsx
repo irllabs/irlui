@@ -2,7 +2,7 @@ import React from 'react';
 // also exported from '@storybook/react' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import BorderButton, { BorderButtonProps, Variant, BorderVariant } from '../../components/border-button/border-button';
+import BorderButton, { BorderButtonProps, ColorVariant, BorderVariant } from '../../components/border-button/border-button';
 import { defaultTheme } from '../../theme/create-theme';
 
 export default {
@@ -18,7 +18,7 @@ const Template: Story<BorderButtonProps> = (args) => <BorderButton {...args} />;
 export const PrimarySolidBorder = Template.bind({});
 PrimarySolidBorder.args = {
     label: 'Primary Solid Border',
-    variant: Variant.PRIMARY,
+    variant: ColorVariant.PRIMARY,
     borderVariant: BorderVariant.SOLID,
     onClick: () => { },
     maxWidth: false,
@@ -28,7 +28,7 @@ PrimarySolidBorder.args = {
 export const PrimaryDashedBorder = Template.bind({});
 PrimaryDashedBorder.args = {
     label: 'Primary Dashed Border',
-    variant: Variant.PRIMARY,
+    variant: ColorVariant.PRIMARY,
     borderVariant: BorderVariant.DASHED,
     onClick: () => { },
     maxWidth: false,
@@ -38,7 +38,7 @@ PrimaryDashedBorder.args = {
 export const SecondarySolidBorder = Template.bind({});
 SecondarySolidBorder.args = {
     label: 'Secondary Solid Border',
-    variant: Variant.SECONDARY,
+    variant: ColorVariant.SECONDARY,
     borderVariant: BorderVariant.SOLID,
     onClick: () => { },
     maxWidth: false,
@@ -48,7 +48,7 @@ SecondarySolidBorder.args = {
 export const SecondaryDashedBorder = Template.bind({});
 SecondaryDashedBorder.args = {
     label: 'Secondary Dashed Border',
-    variant: Variant.SECONDARY,
+    variant: ColorVariant.SECONDARY,
     borderVariant: BorderVariant.DASHED,
     onClick: () => { },
     maxWidth: false,

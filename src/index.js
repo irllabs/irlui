@@ -1,5 +1,5 @@
 import AudioSelector from './components/audio-selector/audio-selector';
-import BorderButton from './components/border-button/border-button';
+import BorderButton, {ColorVariant} from './components/border-button/border-button';
 import Button from './components/button/button';
 import Checkbox from './components/checkbox/checkbox';
 import Fab from './components/fab/fab';
@@ -23,6 +23,7 @@ export {
     ThemeContext,
     AudioSelector,
     BorderButton,
+    ColorVariant,
     Button,
     Checkbox,
     Fab,
