@@ -21,6 +21,20 @@ module.exports = {
       include: path.resolve(__dirname, '../'),
     });
 
+    // config.module.rules.push({
+        
+    //         test: /\.svg$/,
+    //         use: [
+    //           {
+    //             loader: 'svg-url-loader',
+    //             options: {
+    //               limit: 10000,
+    //             jsx: true // true outputs JSX tags
+    //             },
+    //           },
+    //         ],
+    // })
+
     // Return the altered config
     return config;
   },
