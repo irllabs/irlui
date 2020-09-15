@@ -12,11 +12,11 @@ import cancelImage from '../../../images/cancel.svg';
 import playSmallImage from '../../../images/play-small.svg';
 import volumeOn from '../../../images/volume-on.svg';
 import loopImage from '../../../images/loop.svg';
-import { Theme } from '../../theme/create-theme';
+import { Theme, defaultTheme } from '../../theme/create-theme';
 
 export interface AudioSelectorProps {
 	title: string;
-	theme: Theme;
+	theme?: Theme;
 }
 
 interface AudioSelectorState {
@@ -77,7 +77,7 @@ export default class AudioSelector extends React.Component<AudioSelectorProps, A
 					/>
 
 					<div className='audio-selector-title'>
-						<Typography variant={TypographyVariant.TEXT_MEDIUM} color={this.props.theme.textDaylight2}>
+						<Typography variant={TypographyVariant.TEXT_MEDIUM} color={this.props.theme.textDaylight2 || defaultTheme.textDaylight2}>
 							{this.props.title}
 						</Typography>
 					</div>
@@ -89,7 +89,7 @@ export default class AudioSelector extends React.Component<AudioSelectorProps, A
 					{this.state.audioData &&
 					<div className='audio-selector-controls'>
 						<div className='audio-selector-file-name'>
-							<Typography variant={TypographyVariant.TEXT_MEDIUM} color={this.props.theme.textDaylight1}>
+							<Typography variant={TypographyVariant.TEXT_MEDIUM} color={this.props.theme.textDaylight1 || defaultTheme.textDaylight1}>
 								{this.state.fileName}
 							</Typography>
 							<img src={cancelImage} onClick={this.removeAudio} className='audio-selector-icon' />
@@ -102,7 +102,7 @@ export default class AudioSelector extends React.Component<AudioSelectorProps, A
 						<div className='audio-selector-volume-control'>
 							<img src={volumeOn} className='audio-selector-icon' />
 							<Spacer size={4} />
-							<Typography variant={TypographyVariant.TEXT_MEDIUM} color={this.props.theme.textDaylight2} whiteSpace='nowrap'>
+							<Typography variant={TypographyVariant.TEXT_MEDIUM} color={this.props.theme.textDaylight2 || defaultTheme.textDaylight2} whiteSpace='nowrap'>
 								Playback volume
 							</Typography>
 							<Spacer size={8} />
@@ -112,7 +112,7 @@ export default class AudioSelector extends React.Component<AudioSelectorProps, A
 							<div style={{display: 'flex'}}>
 								<img src={loopImage} />
 								<Spacer size={4} />
-								<Typography variant={TypographyVariant.TEXT_MEDIUM} color={this.props.theme.textDaylight2}>
+								<Typography variant={TypographyVariant.TEXT_MEDIUM} color={this.props.theme.textDaylight2 || defaultTheme.textDaylight2}>
 									Play in-loop
 								</Typography>
 							</div>

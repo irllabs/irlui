@@ -2,7 +2,7 @@ import React from 'react';
 
 import Typography, { TypographyVariant } from '../typography/typography';
 import colors from '../../../styles/colors';
-
+import plusIcon from '../../../images/plus.svg';
 import './fab.scss';
 
 export interface FabActionItem {
@@ -13,7 +13,7 @@ export interface FabActionItem {
 
 export interface FabProps {
 	color: string;
-	actionItems: FabActionItem[];
+	actionItems?: FabActionItem[];
 	onClick: (actionName: string) => void;
 }
 
@@ -36,9 +36,9 @@ class Fab extends React.Component<FabProps, FabState> {
 		};
 
 		return (
-			<div style={style} className='fab-container' onClick={this.toggle}>
-				{/* <img className={this.state.open ? 'fab-icon-rotated' : ''} src='assets/icons/plus.svg' /> */}
-				{this.state.open
+			<div style={style} className='fab-container' onClick={this.props.actionItems ? this.toggle : this.onActionClick}>
+				<img className={this.state.open ? 'fab-icon-rotated' : ''} src={plusIcon} />
+				{this.state.open && this.props.actionItems
 				&& <div className='fab-action-items-container'>
 					{this.props.actionItems.map((actionItem) => {
 						return (
@@ -75,7 +75,7 @@ class Fab extends React.Component<FabProps, FabState> {
 		});
 	}
 
-	private onActionClick = (action: string): void => {
+	private onActionClick = (action: string | any): void => {
 		this.props.onClick(action);
 	}
 }

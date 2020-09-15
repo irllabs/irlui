@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap');
+
+@import './styles/colors.scss';
+@import './styles/fonts.scss';
+@import './styles/responsive.scss';
+@import './styles/checker.scss';
+
+body {
+	font-family: $font-family;
+	user-select: none;
+}

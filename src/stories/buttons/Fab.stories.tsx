@@ -16,9 +16,15 @@ export default {
 
 const Template: Story<FabProps> = (args) => <Fab {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {
-    color: defaultTheme.primary,
+export const WithActions = Template.bind({});
+WithActions.args = {
+  color: defaultTheme.primary,
 	actionItems: [{name: 'Loop', action: 'loop', icon: loop}],
+	onClick: (actionName: string) => {}
+};
+
+export const WithoutActions = Template.bind({});
+WithoutActions.args = {
+  color: defaultTheme.primary,
 	onClick: (actionName: string) => {}
 };

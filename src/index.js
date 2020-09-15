@@ -15,12 +15,13 @@ import SignInDialog from './components/sign-in/sign-in';
 import Slider from './components/slider/slider';
 import Spacer from './components/spacer/spacer';
 import Typography, {TypographyVariant} from './components/typography/typography';
-import Theme from './theme/create-theme';
+import Theme, {defaultTheme} from './theme/create-theme';
 import ThemeContext from './theme/theme-context';
 
 export {
     Theme,
     ThemeContext,
+    defaultTheme,
     AudioSelector,
     BorderButton,
     ColorVariant,

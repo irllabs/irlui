@@ -1,0 +1,52 @@
+@import '../../../../index.scss';;
+@import '../../../../styles/shadows.scss';
+
+.project-card-container {
+	height: 171px;
+	border-radius: 12px;
+	box-shadow: $elevated;
+	@include checkerBackground();
+}
+
+.project-card-title {
+	border-radius: 12px 12px 0px 0px;
+	display: flex;
+	align-items: center;
+	background-color: white;
+	padding: 12px;
+}
+
+.project-image-container {
+	display: flex;
+	justify-content: center;
+	max-height: calc(100% - 42px);
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.project-image {
+	max-width: 100%;
+	height: auto;
+}
+
+.project-actions-container {
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+	background-color: rgba(255, 255, 255, 0.9);
+}
+
+.project-actions-icon-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
