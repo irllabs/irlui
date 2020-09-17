@@ -4,7 +4,7 @@ import MenuItem, {MenuItemData} from './menu-item';
 
 import './menu.scss'
 
-interface MenuProps {
+export interface MenuProps {
 	top: number;
 	left: number;
 	width: number;
